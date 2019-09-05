@@ -481,7 +481,15 @@ PROMPT_COMMAND=bash_prompt_command
 ##	which gets updated by $PROMT_COMMAND on behalf of the terminal
 bash_prompt
 unset bash_prompt
+function cd {
+    builtin cd "$@" && ls -F
+    }
+### Aliases
 
+alias wmucon='sshfs nnp4783@login.cs.wmich.edu:/unified/n/nnp4783 Documents/Current_classes/CS4540-OS/WMUservers
+'
+alias wmudis='fusermount -u Documents/Current_classes/CS4540-OS/WMUservers'
+alias cli='xdg-open'
 
 
 ### EOF ###

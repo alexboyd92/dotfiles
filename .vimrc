@@ -11,7 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'ap/vim-buftabline'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'morhetz/gruvbox'
@@ -21,7 +21,7 @@ Plugin 'powerline/fonts'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Plugin 'rdnetto/YCM-Generator'
+Plugin 'rdnetto/YCM-Generator'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
