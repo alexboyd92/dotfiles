@@ -70,9 +70,9 @@ if ${use_color} ; then
 	fi
 
 	if [[ ${EUID} == 0 ]] ; then
-		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
+		PS1='\[\033[48;5;6m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
 	else
-		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
+		PS1='\[\033[48;5;6m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
 	fi
 
 	alias ls='ls --color=auto'
@@ -152,7 +152,7 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 ##		/home/me/stuff -> ~/stuff (if USER=me)
 ##		/usr/share/big_dir_name -> ../share/big_dir_name (if pwdmaxlen=20)
 ##
-##	Original source: WOLFMAN'S color bash promt
+	##	Original source: WOLFMAN'S color bash promt
 ##	https://wiki.chakralinux.org/index.php?title=Color_Bash_Prompt#Wolfman.27s
 ##
 bash_prompt_command() {
@@ -287,18 +287,18 @@ bash_prompt() {
 	## Choose your color combination here                                     ##
 	############################################################################
 	local FONT_COLOR_1=$WHITE
-	local BACKGROUND_1=$RED
+	local BACKGROUND_1=$CYAN
 	local TEXTEFFECT_1=$BOLD
 
 	local FONT_COLOR_2=$WHITE
-	local BACKGROUND_2=$L_BLUE
+	local BACKGROUND_2=$D_GRAY
 	local TEXTEFFECT_2=$BOLD
 
 	local FONT_COLOR_3=$D_GRAY
 	local BACKGROUND_3=$WHITE
 	local TEXTEFFECT_3=$BOLD
 
-	local PROMT_FORMAT=$BLUE_BOLD
+	local PROMT_FORMAT=$CYAN_BOLD
 
 
 	############################################################################
@@ -307,12 +307,12 @@ bash_prompt() {
 	############################################################################
 
 	## CONFIGURATION: BLUE-WHITE
-	if [ "$HOSTNAME" = dell ]; then
-		FONT_COLOR_1=$WHITE; BACKGROUND_1=$BLUE; TEXTEFFECT_1=$BOLD
-		FONT_COLOR_2=$WHITE; BACKGROUND_2=$L_BLUE; TEXTEFFECT_2=$BOLD
-		FONT_COLOR_3=$D_GRAY; BACKGROUND_3=$WHITE; TEXTEFFECT_3=$BOLD
-		PROMT_FORMAT=$CYAN_BOLD
-	fi
+	# if [ "$HOSTNAME" = dell ]; then
+	# 	FONT_COLOR_1=$WHITE; BACKGROUND_1=$BLUE; TEXTEFFECT_1=$BOLD
+	# 	FONT_COLOR_2=$WHITE; BACKGROUND_2=$L_BLUE; TEXTEFFECT_2=$BOLD
+	# 	FONT_COLOR_3=$D_GRAY; BACKGROUND_3=$WHITE; TEXTEFFECT_3=$BOLD
+	# 	PROMT_FORMAT=$CYAN_BOLD
+	# fi
 
 	## CONFIGURATION: BLACK-RED
 	if [ "$HOSTNAME" = giraff6 ]; then
@@ -329,7 +329,7 @@ bash_prompt() {
 	#PROMT_FORMAT=$RED_BOLD
 
 	## CONFIGURATION: CYAN-BLUE
-	if [ "$HOSTNAME" = sharkoon ]; then
+	if [ "$HOSTNAME" = alex ]; then
 		FONT_COLOR_1=$BLACK; BACKGROUND_1=$L_CYAN; TEXTEFFECT_1=$BOLD
 		FONT_COLOR_2=$WHITE; BACKGROUND_2=$L_BLUE; TEXTEFFECT_2=$BOLD
 		FONT_COLOR_3=$WHITE; BACKGROUND_3=$BLUE; TEXTEFFECT_3=$BOLD
