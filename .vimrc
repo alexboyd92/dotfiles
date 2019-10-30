@@ -22,6 +22,7 @@ Plugin 'powerline/fonts'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'https://github.com/tpope/vim-sensible.git'
 Plugin 'rdnetto/YCM-Generator'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -48,7 +49,17 @@ nmap ,f :NERDTreeToggle<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+" Disable Arrow keys in Escape mode
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
+" Disable Arrow keys in Insert mode
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
