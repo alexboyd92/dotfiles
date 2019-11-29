@@ -1,35 +1,58 @@
 #!/bin/bash
+
+#declare an array so i only have to write tis code once
+declare -a arr=(".vimrc" ".tmux.conf" ".bashrc")
+if [ "$1" == "-c" ]; 
+	then
+	echo "Restoring old configs if they exist"
+	 for FILE in "${arr[@]}"
+	 do
+		 if test -f "$FILE.back";
+			then
+			
+			mv $FILE.back $FILE
+		 fi
+	 done
+else
 #clone vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # run plugin install
-vim +PluginInstall +qall
+#vim +PluginInstall +qall
 
 #clone tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 #instal powerline fonts patched
-wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-mkdir -p ~/.fonts/ && mv PowerlineSymbols.otf ~/.fonts/
-fc-cache -vf ~/.fonts
-mkdir -p ~/.config/fontconfig/conf.d/ && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+#wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+#mkdir -p ~/.fonts/ && mv PowerlineSymbols.otf ~/.fonts/
+#fc-cache -vf ~/.fonts
+#mkdir -p ~/.config/fontconfig/conf.d/ && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 # set up link to dotfiles
 cd ~
-declare -a arr=(".vimrc" ".tmux.conf" ".bashrc")
-for i in "${arr[@]}"
+
+# loop trough each argument in the array
+for FILE in "${arr[@]}"
 do
-	FILE=$i
+#tell the user what im doing
 	   echo "Creating link for $FILE"
-      
+#check if the config im working with exist
 if test -f "$FILE";
-then echo "$FILE exist creating backup"
+#if it does tell the user that im making a backup
+then echo "File $FILE exist creating backup"
+	#check if a backup file exist
 	if test -f "$FILE.back";then
+		#if it does tell the user im not doing anythign
 		echo "Backup file alredy exist doing noting"
 	else
+	#If it does not create the backup
 		mv $FILE $FILE.back
+	# Create a link to the config file here
 		ln -s dotfiles/$FILE $FILE
 	
 	fi
 	
 else
+	#if the file does not exist  create a link to the config file here
 	ln -s dotfiles/$FILE $FILE
 fi
 done
+fi
