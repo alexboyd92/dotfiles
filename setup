@@ -14,18 +14,18 @@ if [ "$1" == "-c" ];
 		 fi
 	 done
 else
-#clone vundle
-#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+clone vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # run plugin install
-#vim +PluginInstall +qall
+vim +PluginInstall +qall
 
 #clone tmux plugin manager
-#git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 #instal powerline fonts patched
-#wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-#mkdir -p ~/.fonts/ && mv PowerlineSymbols.otf ~/.fonts/
-#fc-cache -vf ~/.fonts
-#mkdir -p ~/.config/fontconfig/conf.d/ && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+get https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+mkdir -p ~/.fonts/ && mv PowerlineSymbols.otf ~/.fonts/
+fc-cache -vf ~/.fonts
+mkdir -p ~/.config/fontconfig/conf.d/ && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 # set up link to dotfiles
 cd ~
 
