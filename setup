@@ -9,7 +9,7 @@ if [ "$1" == "-c" ];
 	 do
 		 if test -f "$FILE.back";
 			then
-			
+			rm -f $FILE
 			mv $FILE.back $FILE
 		 fi
 	 done

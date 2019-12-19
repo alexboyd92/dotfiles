@@ -486,9 +486,7 @@ function cd {
     }
 ### Aliases
 
-alias wmucon='sshfs nnp4783@login.cs.wmich.edu:/unified/n/nnp4783 Documents/Current_classes/CS4540-OS/WMUservers
 '
-alias wmudis='fusermount -u Documents/Current_classes/CS4540-OS/WMUservers'
 alias cli='xdg-open'
 
 
