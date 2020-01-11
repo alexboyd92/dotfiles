@@ -486,7 +486,6 @@ function cd {
     }
 ### Aliases
 
-'
 alias cli='xdg-open'
 
 
